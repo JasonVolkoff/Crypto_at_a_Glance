@@ -24,7 +24,7 @@
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
         integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
         crossorigin="anonymous"></script>
-    <script src="js/scripts.js"></script>
+    <script src="js/scripts2.js"></script>
 </head>
 
 <body>
@@ -51,10 +51,35 @@
                 </div>
 
                 <hr class="my-4">
+
             </div>
             <div>
                 <!-- dynamic current price below -->
-                <h1>$60000.00</h1>
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1 class="d-inline-block mb-0">$60000.00</h1>
+                    <!-- <div class="btn-group d-inline-block align-center">
+                        <button id="day" type="button" class="btn btn-primary">24h</button>
+                        <button id="week" type="button" class="btn btn-primary">7d</button>
+                        <button id="month" type="button" class="btn btn-primary">30d</button>
+                        <button id="year" type="button" class="btn btn-primary">1y</button>
+                    </div> -->
+                    <div class="btn-group d-inline-block align-center">
+                        <input type="radio" name="options" value="1" class="btn-check" id="day" autocomplete="off">
+                        <label class="btn btn-secondary" for="day">day</label>
+
+                        <input type="radio" name="options" value="2" class="btn-check" id="week" autocomplete="off">
+                        <label class="btn btn-secondary" for="week">week</label>
+
+                        <input type="radio" name="options" value="3" class="btn-check" id="month" autocomplete="off">
+                        <label class="btn btn-secondary" for="month">30d</label>
+
+                        <input type="radio" name="options" value="4" class="btn-check" id="year" autocomplete="off">
+                        <label class="btn btn-secondary" for="year">1y</label>
+
+                    </div>
+                </div>
+
+
                 <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
             </div>
         </div>
