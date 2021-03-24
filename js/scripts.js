@@ -199,17 +199,21 @@ $(document).ready(function () {
         console.log(data);
         let coinsData = data.coin;
         (function () {
-
-
+            // This doesn't work (below)
+            // if (typeof myChart !== "undefined") {
+            //     console.log("destroying old chart.");
+            //     myChart.destroy();
+            // }
+            myChart.destory();
             // Graphs
             var ctx = document.getElementById('myChart')
             // eslint-disable-next-line no-unused-vars
-            myChart = new Chart(ctx, {
+            var myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
                     labels: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
                     datasets: [{
-                        data: coinsData.sparkline.toFixed(2),
+                        data: coinsData.sparkline,
                         label: "Bitcoin",
                         lineTension: 0,
                         backgroundColor: 'transparent',
