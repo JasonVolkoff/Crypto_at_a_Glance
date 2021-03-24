@@ -132,55 +132,14 @@ $(document).ready(function () {
     const bitcoin = "Qwsogvtv82FCd"
     const etherium = "razxDUgYGNAdQ"
     const litecoin = "D7B1x_ks7WhV5"
+    var uuid = "Qwsogvtv82FCd";
     const yearly = "1y";
     const monthly = "30d";
     const weekly = "7d";
     const daily = "24h";
     var time = "24h";
-    var uuid = "Qwsogvtv82FCd";
-    // $('input[type=radio][name=options]').change(function () {
-    //     if (this.value == 1) {
-    //         time = daily;
-    //         getCoinData(uuid, time);
-    //         console.log("radio success");
-    //     } else if (this.value == 2) {
-    //         time = weekly;
-    //         getCoinData(uuid, time);
-    //         console.log("radio success");
-    //     } else if (this.value == 3) {
-    //         time = monthly;
-    //         getCoinData(uuid, time);
-    //         console.log("radio success");
-    //     } else if (this.value == 4) {
-    //         time = yearly;
-    //         getCoinData(uuid, time);
-    //         console.log("radio success");
-    //     }
-    // });
+    var currencyName = "Bitcoin"
     getCoinData(uuid, time);
-    // $('.btn-check').click(function () {
-    //     var selectedValueTime = parseInt($(this).val());
-    //     //Depends on Value 0-3 respective function gets called.
-    //     switch (selectedValueTime) {
-    //         case 0:
-    //             console.log("radio day success");
-    //             time = daily;
-    //             getCoinData(uuid, time);
-    //         case 1:
-    //             console.log("radio week success");
-    //             time = weekly;
-    //             getCoinData(uuid, time);
-    //         case 2:
-    //             console.log("radio month success");
-    //             time = monthly;
-    //             getCoinData(uuid, time);
-    //         case 3:
-    //             console.log("radio year success");
-    //             time = yearly;
-    //             getCoinData(uuid, time);
-    //     }
-    // })
-
     $('input:radio[name=options]').on("click", function () {
         if (time != $("input[name=options]:checked").val()) {
             time = $("input[name=options]:checked").val();
@@ -195,16 +154,19 @@ $(document).ready(function () {
         switch (selectedValueCurrency) {
             case 0:
                 console.log("radio btc success");
+                $("#currency").text("Bitcoin");
                 uuid = bitcoin;
                 getCoinData(uuid, time);
                 break;
             case 1:
                 console.log("radio eth success");
+                $("#currency").text("Etherium");
                 uuid = etherium;
                 getCoinData(uuid, time);
                 break;
             case 2:
                 console.log("radio ltc success");
+                $("#currency").text("Litecoin");
                 uuid = litecoin;
                 getCoinData(uuid, time);
         }
@@ -237,26 +199,18 @@ $(document).ready(function () {
         console.log(data);
         let coinsData = data.coin;
         (function () {
-            'use strict'
-            feather.replace()
+
 
             // Graphs
             var ctx = document.getElementById('myChart')
             // eslint-disable-next-line no-unused-vars
-            var myChart = new Chart(ctx, {
+            myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: [
-                        'Sunday',
-                        'Monday',
-                        'Tuesday',
-                        'Wednesday',
-                        'Thursday',
-                        'Friday',
-                        'Saturday'
-                    ],
+                    labels: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
                     datasets: [{
-                        data: coinsData.sparkline,
+                        data: coinsData.sparkline.toFixed(2),
+                        label: "Bitcoin",
                         lineTension: 0,
                         backgroundColor: 'transparent',
                         borderColor: coinsData.color,
