@@ -129,7 +129,7 @@
 
 
 $(document).ready(function () {
-    const bitcoin = "qwsogvtv82FCd";
+    const bitcoin = "Qwsogvtv82FCd"
     const etherium = "razxDUgYGNAdQ"
     const litecoin = "D7B1x_ks7WhV5"
     const yearly = "1y";
@@ -137,45 +137,76 @@ $(document).ready(function () {
     const weekly = "7d";
     const daily = "24h";
     var time = "24h";
-    var uuid = "qwsogvtv82FCd";
-    $('input[type=radio][name=options]').change(function () {
-        if (this.value == 1) {
-            time = daily;
+    var uuid = "Qwsogvtv82FCd";
+    // $('input[type=radio][name=options]').change(function () {
+    //     if (this.value == 1) {
+    //         time = daily;
+    //         getCoinData(uuid, time);
+    //         console.log("radio success");
+    //     } else if (this.value == 2) {
+    //         time = weekly;
+    //         getCoinData(uuid, time);
+    //         console.log("radio success");
+    //     } else if (this.value == 3) {
+    //         time = monthly;
+    //         getCoinData(uuid, time);
+    //         console.log("radio success");
+    //     } else if (this.value == 4) {
+    //         time = yearly;
+    //         getCoinData(uuid, time);
+    //         console.log("radio success");
+    //     }
+    // });
+    getCoinData(uuid, time);
+    // $('.btn-check').click(function () {
+    //     var selectedValueTime = parseInt($(this).val());
+    //     //Depends on Value 0-3 respective function gets called.
+    //     switch (selectedValueTime) {
+    //         case 0:
+    //             console.log("radio day success");
+    //             time = daily;
+    //             getCoinData(uuid, time);
+    //         case 1:
+    //             console.log("radio week success");
+    //             time = weekly;
+    //             getCoinData(uuid, time);
+    //         case 2:
+    //             console.log("radio month success");
+    //             time = monthly;
+    //             getCoinData(uuid, time);
+    //         case 3:
+    //             console.log("radio year success");
+    //             time = yearly;
+    //             getCoinData(uuid, time);
+    //     }
+    // })
+
+    $('input:radio[name=options]').on("click", function () {
+        if (time != $("input[name=options]:checked").val()) {
+            time = $("input[name=options]:checked").val();
+            console.log(time);
             getCoinData(uuid, time);
-            console.log("radio success");
-        } else if (this.value == 2) {
-            time = weekly;
-            getCoinData(uuid, time);
-            console.log("radio success");
-        } else if (this.value == 3) {
-            time = monthly;
-            getCoinData(uuid, time);
-            console.log("radio success");
-        } else if (this.value == 4) {
-            time = yearly;
-            getCoinData(uuid, time);
-            console.log("radio success");
         }
-    });
+
+    })
     $('#cryptoList').change(function () {
-        var selectedValue = parseInt($(this).val());
-        //Depend on Value i.e. 0 or 1 respective function gets called. 
-        switch (selectedValue) {
+        var selectedValueCurrency = parseInt($(this).val());
+        //Depends on Value 0-2 respective function gets called. 
+        switch (selectedValueCurrency) {
             case 0:
+                console.log("radio btc success");
                 uuid = bitcoin;
                 getCoinData(uuid, time);
                 break;
             case 1:
+                console.log("radio eth success");
                 uuid = etherium;
                 getCoinData(uuid, time);
                 break;
             case 2:
+                console.log("radio ltc success");
                 uuid = litecoin;
                 getCoinData(uuid, time);
-            //etc... 
-            default:
-                alert("catch default");
-                break;
         }
     });
 
@@ -196,7 +227,8 @@ $(document).ready(function () {
             .then((response) => {
                 if (response.ok) {
                     response.json().then((json) => {
-                        alert("hi");
+                        console.log("getCoinDataResponse Success");
+                        handlerFunctionA(json.data);
                     })
                 }
             })
