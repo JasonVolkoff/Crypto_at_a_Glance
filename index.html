@@ -40,7 +40,7 @@
                     <!-- coin svg goes below -->
                     <img src="" width="30" height="30" class="d-inline-block align-top" alt="">
                     <!-- coin name appended below -->
-                    <h1 class="display-4 d-inline-block">Bitcoin</h1>
+                    <h1 class="display-4 d-inline-block" id="currency">Bitcoin</h1>
                 </div>
                 <div>
                     <select id="cryptoList" class="custom-select custom-select-lg mb-3">
@@ -56,7 +56,11 @@
             <div>
                 <!-- dynamic current price below -->
                 <div class="d-flex justify-content-between align-items-center">
-                    <h1 class="d-inline-block mb-0">$60000.00</h1>
+                    <div>
+                        <h1 class="d-inline-block mb-0">$</h1>
+                        <h1 id="currentPrice" class="d-inline-block mb-0"></h1>
+                    </div>
+
                     <!-- <div class="btn-group d-inline-block align-center">
                         <button id="day" type="button" class="btn btn-primary">24h</button>
                         <button id="week" type="button" class="btn btn-primary">7d</button>
