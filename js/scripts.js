@@ -129,17 +129,22 @@
 
 
 $(document).ready(function () {
+    // Define currency codes
     const bitcoin = "Qwsogvtv82FCd"
     const etherium = "razxDUgYGNAdQ"
     const litecoin = "D7B1x_ks7WhV5"
     var uuid = "Qwsogvtv82FCd";
+    // Define timeframe codes
     const yearly = "1y";
     const monthly = "30d";
     const weekly = "7d";
     const daily = "24h";
     var time = "24h";
     var currencyName = "Bitcoin"
+    // Define empty chart globally, then call getCoinData to populate default chart (btc)
+    let myChart;
     getCoinData(uuid, time);
+    console.log(myChart);
     $('input:radio[name=options]').on("click", function () {
         if (time != $("input[name=options]:checked").val()) {
             time = $("input[name=options]:checked").val();
@@ -200,15 +205,15 @@ $(document).ready(function () {
         let coinsData = data.coin;
         (function () {
             // This doesn't work (below)
-            // if (typeof myChart !== "undefined") {
-            //     console.log("destroying old chart.");
-            //     myChart.destroy();
-            // }
-            myChart.destory();
+            if (myChart) {
+                console.log("destroying old chart.");
+                myChart.destroy();
+            }
+
             // Graphs
             var ctx = document.getElementById('myChart')
             // eslint-disable-next-line no-unused-vars
-            var myChart = new Chart(ctx, {
+            myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
                     labels: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
@@ -227,7 +232,7 @@ $(document).ready(function () {
                     scales: {
                         yAxes: [{
                             ticks: {
-                                beginAtZero: false
+                                beginAtZero: false,
                             }
                         }]
                     },
