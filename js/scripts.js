@@ -54,7 +54,6 @@ $(document).ready(function () {
 
     function getCoinData(currency, timeframe) {
         console.log("getCoinData Success");
-
         var baseUrl = "https://api.coinranking.com/v2/coin/" + currency + "?timePeriod=" + timeframe;
         var proxyUrl = "https://cors-anywhere.herokuapp.com/";
         var apiKey = "coinrankingc0b595008db85657a50d4082f20ff1ab68d03f2b78445fb8"
@@ -83,6 +82,17 @@ $(document).ready(function () {
             var price = Math.round((parseFloat(coinsData.price) + Number.EPSILON) * 100) / 100;
             $("#currentPrice").text(price);
             $("img").attr("src", coinsData.iconUrl);
+            // Add percent change over specified time period.
+            var change = Math.round((parseFloat(coinsData.change) + Number.EPSILON) * 100) / 100;
+            $("#percentChange").text(change)
+            if (change > 0) { //Checks if the change is positive or negative, then assigns color to the text
+                $("#percentChange").css("color", "green").prepend("+");
+            }
+            else {
+                $("#percentChange").css("color", "red");
+            }
+            var description = `<p>${coinsData.description}</p>`;
+            $("#infoContainer").append(description);
             // Graphs
             var ctx = document.getElementById('myChart')
             myChart = new Chart(ctx, {
@@ -124,8 +134,8 @@ $(document).ready(function () {
             myChart.destroy();
             $("#currentPrice").text("");
             $("img").attr("src", "");
+            $("#percentChange").text("");
+            $("#infoContainer").empty();
         }
     }
 })
-
-// })
