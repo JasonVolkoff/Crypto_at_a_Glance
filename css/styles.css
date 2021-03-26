@@ -2,3 +2,29 @@
     display: flex;
     justify-content: center;
 }
+.container {
+    border-radius: 1em;
+    box-shadow: 5px 8px 8px 8px #888888;
+    padding: 15px;
+}
+#infoContainer {
+    min-height: 200px;
+}
+.navbar-brand {
+    margin-left: 15px;
+}
+.btn-group label:hover{
+ background-color: rgb(97, 183, 253);
+}
+.btn-group label {
+    background-color:rgb(39, 138, 177);
+    border: none;
+    box-shadow: 1px 3px 2px #888888;
+}
+.btn-group input[type="radio"]:checked + label {
+    background-color: rgb(0, 74, 104);
+}
+.navbar {
+    background-color: rgb(178, 219, 252);
+    
+}
