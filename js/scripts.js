@@ -1,6 +1,7 @@
 
 $(document).ready(function () {
     // Define currency codes
+    'use strict';
     const bitcoin = "Qwsogvtv82FCd"
     const etherium = "razxDUgYGNAdQ"
     const litecoin = "D7B1x_ks7WhV5"
