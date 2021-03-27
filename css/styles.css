@@ -6,6 +6,7 @@
     border-radius: 1em;
     box-shadow: 5px 8px 8px 8px #888888;
     padding: 15px;
+    background-color: rgb(250, 248, 248);
 }
 #infoContainer {
     min-height: 200px;
@@ -14,7 +15,7 @@
     margin-left: 15px;
 }
 .btn-group label:hover{
- background-color: rgb(97, 183, 253);
+    background-color: rgb(97, 183, 253);
 }
 .btn-group label {
     background-color:rgb(39, 138, 177);
@@ -25,6 +26,9 @@
     background-color: rgb(0, 74, 104);
 }
 .navbar {
-    background-color: rgb(178, 219, 252);
+    background-color: rgb(145, 204, 255);
     
+}
+.wrapper {
+    background-color: rgb(197, 223, 238);
 }
