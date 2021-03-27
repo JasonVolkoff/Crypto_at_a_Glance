@@ -1,4 +1,4 @@
-.jumbotron div{
+.container > div div{
     display: flex;
     justify-content: center;
 }
@@ -32,4 +32,30 @@
 .wrapper {
     background-color: rgb(197, 223, 238);
     padding-bottom: 24px;
+    min-width: 350px;
+    min-height: 1000px;
+}
+.changeFont {
+    font-size: 2.5rem;
+}
+
+/* Media Queries */
+@media only screen and (max-width:768px) {
+
+}
+@media only screen and (max-width: 500px) {
+    .changeFont {
+        font-size: 2rem;
+    }
+    .btn-group label {
+        padding: .3rem .5rem;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .changeFont {
+        font-size: 1.5rem;
+    }
+    .btn-group label {
+        padding: .25rem .3rem;
+    }
 }
