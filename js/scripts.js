@@ -21,7 +21,7 @@ $(document).ready(function () {
         if (time != $("input[name=options]:checked").val()) {
             time = $("input[name=options]:checked").val();
             console.log(time);
-            destroyerOfCharts();
+            ggGoNext();
             getCoinData(uuid, time);
         }
     })
@@ -29,7 +29,7 @@ $(document).ready(function () {
     // Currency type selector
     $('#cryptoList').change(function () {
         var selectedValueCurrency = parseInt($(this).val());
-        destroyerOfCharts(uuid);
+        ggGoNext();
         //Depends on Value 0-2 respective function gets called. 
         switch (selectedValueCurrency) {
             case 0:
@@ -86,10 +86,10 @@ $(document).ready(function () {
             var change = Math.round((parseFloat(coinsData.change) + Number.EPSILON) * 100) / 100;
             $("#percentChange").text(change)
             if (change > 0) { //Checks if the change is positive or negative, then assigns color to the text
-                $("#percentChange").css("color", "green").prepend("+");
+                $("#percentChange").css("color", "green").prepend("+").append("%");
             }
             else {
-                $("#percentChange").css("color", "red");
+                $("#percentChange").css("color", "red").append("%");
             }
             var description = `<p>${coinsData.description}</p>`;
             $("#infoContainer").append(description);
@@ -128,12 +128,12 @@ $(document).ready(function () {
             })
         })()
     }
-    function destroyerOfCharts() {
+    function ggGoNext() {
         if (myChart) {
             console.log("destroying old chart.");
             myChart.destroy();
             $("#currentPrice").text("");
-            $("img").attr("src", "");
+            $("img").attr("src", "#");
             $("#percentChange").text("");
             $("#infoContainer").empty();
         }
