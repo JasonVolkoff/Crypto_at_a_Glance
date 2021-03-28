@@ -1,5 +1,9 @@
 # Crypto_Display_Info
+<<<<<<< HEAD
 [![youtube showcase video](https://img.youtube.com/vi/6zRX6yXJEts/0.jpg)](https://www.youtube.com/watch?v=6zRX6yXJEts)
+=======
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/6zRX6yXJEts/0.jpg)](https://www.youtube.com/watch?v=6zRX6yXJEts)
+>>>>>>> 8e0607692e733cfffbd30887e4264a2896cb5b28
 
 
 To begin, press F12 to open DevTools *(chrome browser)* then request temporary access to Cors Anywhere by clicking the link shown in the console  https://cors-anywhere.herokuapp.com/ (*alternatively, just click the link here*)
