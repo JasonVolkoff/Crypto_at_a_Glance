@@ -22,7 +22,7 @@ $(document).ready(function () {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'X-My-Custom-Header': `${apiKey}`,
+                'x-access-token': `${apiKey}`,
                 'Access-Control-Allow-Origin': "*"
             }
         })
