@@ -8,5 +8,5 @@ To begin, press F12 to open DevTools *(chrome browser)* then request temporary a
 
 ![image](https://user-images.githubusercontent.com/77880911/112754529-51c7a380-8f91-11eb-8c6f-e6238a7070d8.png)
 
-
+Without performing these steps, no calls to the coinranking API can be made. 
 
