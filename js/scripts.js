@@ -46,65 +46,64 @@ $(document).ready(function () {
             $("#infoContainer").empty();
         }
         let coinsData = data.coin;
-        (function () {
-            // Add the selected currency's name and icon, along with current price.
-            var price = Math.round((parseFloat(coinsData.price) + Number.EPSILON) * 100) / 100;
-            $("#currency").text(coinsData.name);
-            $("img").attr("src", coinsData.iconUrl);
-            $("#currentPrice").text(price);
+        // Add the selected currency's name and icon, along with current price.
+        var price = Math.round((parseFloat(coinsData.price) + Number.EPSILON) * 100) / 100;
+        $("#currency").text(coinsData.name);
+        $("img").attr("src", coinsData.iconUrl);
+        $("#currentPrice").text(price);
 
-            // ######
-            // Add percent change over specified time period.
-            // ######
+        // ######
+        // Add percent change over specified time period.
+        // ######
 
-            var change = Math.round((parseFloat(coinsData.change) + Number.EPSILON) * 100) / 100;
-            $("#percentChange").text(change)
-            if (change > 0) { //Checks if the change is positive or negative, then assigns color to the text
-                $("#percentChange").css("color", "green").prepend("+").append("%");
-            }
-            else {
-                $("#percentChange").css("color", "red").append("%");
-            }
-            var description = `<p>${coinsData.description}</p>`;
-            $("#infoContainer").append(description);
+        var change = Math.round((parseFloat(coinsData.change) + Number.EPSILON) * 100) / 100;
+        $("#percentChange").text(change)
+        if (change > 0) { //Checks if the change is positive or negative, then assigns color to the text
+            $("#percentChange").css("color", "green").prepend("+").append("%");
+        }
+        else {
+            $("#percentChange").css("color", "red").append("%");
+        }
+        var description = `<p>${coinsData.description}</p>`;
+        $("#infoContainer").append(description);
 
-            // ######
-            // Graph
-            // ######
+        // ######
+        // Graph
+        // ######
 
-            var ctx = document.getElementById('myChart')
-            myChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
-                    datasets: [{
-                        data: coinsData.sparkline,
-                        label: coinsData.symbol,
-                        lineTension: 0,
-                        backgroundColor: 'transparent',
-                        borderColor: coinsData.color,
-                        borderWidth: 4,
-                        pointBackgroundColor: coinsData.color,
-                    },
-                    ]
+        var ctx = document.getElementById('myChart')
+        myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+                datasets: [{
+                    data: coinsData.sparkline,
+                    label: coinsData.symbol,
+                    lineTension: 0,
+                    backgroundColor: 'transparent',
+                    borderColor: coinsData.color,
+                    borderWidth: 4,
+                    pointBackgroundColor: coinsData.color,
                 },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: false,
-                                callback: function (value, index, values) {
-                                    return '$' + value;
-                                }
+                ]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: false,
+                            callback: function (value, index, values) {
+                                return '$' + value;
                             }
-                        }]
-                    },
-                    legend: {
-                        display: true,
-                    }
+                        }
+                    }]
+                },
+                legend: {
+                    display: true,
                 }
-            })
-        })()
+            }
+        })
+            ()
     }
     // ######
     // Currency type selector
