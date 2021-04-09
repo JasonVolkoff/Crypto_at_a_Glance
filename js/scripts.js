@@ -40,10 +40,10 @@ $(document).ready(function () {
         if (myChart) {
             console.log("destroying old chart.");
             myChart.destroy();
-            $("#currentPrice").text("");
+            $("#currentPrice").empty();
             $("img").attr("src", "#");
-            $("#percentChange").text("");
-            $("#infoContainer").text(" ");
+            $("#percentChange").empty();
+            $("#infoContainer").empty();
         }
         let coinsData = data.coin;
         // Add the selected currency's name and icon, along with current price.
@@ -103,7 +103,6 @@ $(document).ready(function () {
                 }
             }
         })
-            ()
     }
     // ######
     // Currency type selector
