@@ -43,7 +43,7 @@ $(document).ready(function () {
             $("#currentPrice").text("");
             $("img").attr("src", "#");
             $("#percentChange").text("");
-            $("#infoContainer").empty();
+            $("#infoContainer").text(" ");
         }
         let coinsData = data.coin;
         // Add the selected currency's name and icon, along with current price.
