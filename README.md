@@ -1,4 +1,4 @@
-# Crypto_Display_Info
+# Crypto at a Glance
 
 A JavaScript-based applicatiopn that tracks and displays cryptocurrency trends and fluctuations
 
